@@ -8,7 +8,7 @@ You can using Dockerfile or pull up git repo and install project in local enviro
 
 build
 
-`docker build --no-cache -t testapp . `
+`docker build --no-cache -t myapp . `
 
 run
 
@@ -19,5 +19,9 @@ run
 `git clone `
 
 `pdm install `
+`RUN pdm run python -m manage makemigrations`
+`RUN pdm run python -m manage migrate`
+`RUN pdm run python -m manage loaddata data.json`
+`RUN pdm run python -m manage collectstatic -v 3 --no-input`
 
 `pdm run manage.py runserver `
